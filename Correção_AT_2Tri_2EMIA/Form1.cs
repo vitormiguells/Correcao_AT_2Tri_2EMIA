@@ -20,7 +20,7 @@ namespace Correção_AT_2Tri_2EMIA
         3 = Tesoura
         */
 
-        int jogadaSelecionada = 0;
+        Jogadas jogadaSelecionada = Jogadas.NENHUMA;
 
         string[] jogadas = new string[3]
         {
@@ -33,6 +33,14 @@ namespace Correção_AT_2Tri_2EMIA
         int vitorias = 0;
         int empates = 0;
         int derrotas = 0;
+        
+        enum Jogadas
+        {
+            NENHUM,
+            PEDRA,
+            PAPEL,
+            TESOURA
+        }
 
         public Form1()
         {
@@ -51,7 +59,7 @@ namespace Correção_AT_2Tri_2EMIA
             {
                 lbJogadaSelecionada.Text = string.Format(
                             "Você selecionou a jogada {0}.",
-                            jogadas[jogadaSelecionada - 1]
+                            jogada.ToString()
                         );
             }
             else
@@ -71,13 +79,6 @@ namespace Correção_AT_2Tri_2EMIA
             {
                 Jogar();
             }
-        }
-
-        enum Jogadas
-        {
-            PEDRA = 1,
-            PAPEL = 2,
-            TESOURA = 3
         }
 
         private void Jogar()
